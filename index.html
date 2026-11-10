@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>McNeill Web Design | Websites for small businesses, done for you</title>
+<meta name="description" content="Professional websites for UK small businesses. We design, build, host and update your site for you. £250 upfront and £40 a month, or £0 upfront and £69 a month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1B33; --navy-2:#132A4D; --ink:#0F172A; --muted:#5B6678;
+    --line:#E3E8F0; --bg:#F6F8FB; --white:#fff;
+    --accent:#FFB020; --accent-ink:#3A2600; --ok:#14996B;
+    --radius:16px; --shadow:0 10px 30px rgba(11,27,51,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;line-height:1.15;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;border-radius:999px;padding:14px 24px;border:2px solid transparent;cursor:pointer;font-size:16px;transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 6px 18px rgba(255,176,32,.35)}
+  .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-dark{background:var(--navy);color:#fff}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  section{padding:88px 0}
+  .section-head{max-width:640px;margin-bottom:44px}
+  .section-head h2{font-size:clamp(28px,4vw,40px);margin:8px 0 12px}
+  .section-head p{color:var(--muted);font-size:18px}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(11,27,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:"Plus Jakarta Sans";font-weight:800;font-size:18px}
+  .logo-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:var(--navy);font-weight:800}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:15px;font-weight:500}
+  .nav-links a:hover{color:#fff}
+  .nav-links .btn{padding:10px 18px;font-size:15px;color:var(--accent-ink)}
+  @media (max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* Hero */
+  .hero{background:radial-gradient(1200px 500px at 85% -10%, #1E3F72 0%, transparent 60%), var(--navy);color:#fff;padding:80px 0 96px;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(36px,5.4vw,60px);margin:14px 0 18px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p.lead{font-size:19px;color:rgba(255,255,255,.78);max-width:540px;margin-bottom:30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .ticks{display:flex;gap:22px;flex-wrap:wrap;color:rgba(255,255,255,.85);font-size:15px}
+  .ticks span{display:flex;align-items:center;gap:8px}
+  .ticks svg{flex:none}
+  @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.mock{display:none}}
+
+  /* Browser + phone mockup */
+  .mock{position:relative;height:420px}
+  .browser{position:absolute;inset:0 40px 40px 0;background:#fff;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.35);overflow:hidden;color:var(--ink)}
+  .browser-bar{height:34px;background:#EEF1F6;display:flex;align-items:center;gap:6px;padding:0 12px}
+  .browser-bar i{width:10px;height:10px;border-radius:50%;background:#CBD3DF;display:block}
+  .browser-bar .url{margin-left:10px;flex:1;height:18px;border-radius:6px;background:#fff;font-size:11px;color:#7A8597;display:flex;align-items:center;padding:0 8px}
+  .demo-hero{background:linear-gradient(135deg,#0F5132,#198754);color:#fff;padding:26px 24px}
+  .demo-hero b{display:block;font-family:"Plus Jakarta Sans";font-size:22px;margin-bottom:6px}
+  .demo-hero small{opacity:.85;font-size:12px}
+  .demo-btn{display:inline-block;margin-top:14px;background:#fff;color:#0F5132;font-weight:700;font-size:12px;padding:7px 14px;border-radius:99px}
+  .demo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px 24px}
+  .demo-cards div{background:var(--bg);border-radius:10px;height:72px;border:1px solid var(--line)}
+  .demo-lines{padding:0 24px}
+  .demo-lines span{display:block;height:8px;background:#E8ECF2;border-radius:4px;margin:8px 0}
+  .phone{position:absolute;right:0;bottom:0;width:150px;height:290px;background:#0A0F1A;border-radius:26px;padding:8px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+  .phone-screen{background:#fff;border-radius:19px;height:100%;overflow:hidden}
+  .phone .demo-hero{padding:22px 14px}
+  .phone .demo-hero b{font-size:15px}
+  .phone .call{margin:12px;background:#198754;color:#fff;font-size:11px;font-weight:700;text-align:center;border-radius:10px;padding:9px}
+
+  /* Problem strip */
+  .strip{background:var(--bg);padding:56px 0}
+  .strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .strip-item{display:flex;gap:14px;align-items:flex-start}
+  .strip-item .ic{flex:none;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+  .strip-item h3{font-size:17px;margin-bottom:4px}
+  .strip-item p{color:var(--muted);font-size:15px}
+  @media (max-width:820px){.strip .wrap{grid-template-columns:1fr}}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative}
+  .step::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-family:"Plus Jakarta Sans";margin-bottom:16px}
+  .step h3{font-size:18px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:15px}
+  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+  /* Included */
+  .included{background:var(--bg)}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat{background:#fff;border-radius:var(--radius);padding:22px;border:1px solid var(--line);display:flex;gap:14px}
+  .feat .ic{flex:none;width:40px;height:40px;border-radius:10px;background:#FFF4DB;display:grid;place-items:center}
+  .feat h3{font-size:16px;margin-bottom:4px}
+  .feat p{font-size:14.5px;color:var(--muted)}
+  @media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.feat-grid{grid-template-columns:1fr}}
+
+  /* Pricing */
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px}
+  .plan{border:1px solid var(--line);border-radius:20px;padding:34px 30px;background:#fff;position:relative;display:flex;flex-direction:column}
+  .plan.featured{border:2px solid var(--navy);box-shadow:var(--shadow)}
+  .badge{position:absolute;top:-13px;left:30px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px;letter-spacing:.03em}
+  .plan h3{font-size:22px;margin-bottom:6px}
+  .plan .sub{color:var(--muted);font-size:15px;margin-bottom:22px}
+  .price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+  .price b{font-family:"Plus Jakarta Sans";font-size:46px;letter-spacing:-.03em}
+  .price span{color:var(--muted)}
+  .then{font-size:16px;margin:4px 0 22px}
+  .then strong{font-size:20px}
+  .plan ul{list-style:none;margin-bottom:28px;flex:1}
+  .plan li{display:flex;gap:10px;padding:7px 0;font-size:15px;border-top:1px solid var(--line)}
+  .plan li:first-child{border-top:0}
+  .plan .btn{justify-content:center}
+  .small-print{max-width:900px;margin-top:22px;color:var(--muted);font-size:14px}
+  @media (max-width:760px){.plans{grid-template-columns:1fr}}
+
+  /* FAQ */
+  .faq{max-width:780px}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:24px;line-height:1;color:var(--muted)}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:10px}
+
+  /* Form */
+  .start{background:var(--navy);color:#fff}
+  .start .section-head p{color:rgba(255,255,255,.75)}
+  form.intake{background:#fff;color:var(--ink);border-radius:22px;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.25);display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  label{font-weight:600;font-size:14.5px}
+  label .opt{font-weight:400;color:var(--muted)}
+  input,textarea,select{font:inherit;font-size:15px;padding:12px 14px;border:1px solid #CFD6E2;border-radius:10px;background:#fff;color:var(--ink);width:100%}
+  input:focus,textarea:focus,select:focus{outline:3px solid rgba(255,176,32,.45);border-color:var(--accent)}
+  textarea{min-height:96px;resize:vertical}
+  .radio-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .radio{display:flex;gap:10px;align-items:flex-start;border:1px solid #CFD6E2;border-radius:12px;padding:14px;cursor:pointer;font-weight:500}
+  .radio input{width:auto;margin-top:4px}
+  .radio small{display:block;color:var(--muted);font-weight:400}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}
+  .consent input{width:auto;margin-top:4px}
+  .hidden{display:none}
+  .form-note{font-size:13.5px;color:var(--muted)}
+  .thanks{grid-column:1/-1;background:#E8F7F0;border:1px solid #BDE7D3;color:#0C5A3E;border-radius:12px;padding:16px;font-weight:500}
+  @media (max-width:700px){form.intake{grid-template-columns:1fr;padding:24px}.radio-row{grid-template-columns:1fr}}
+
+  /* Privacy + footer */
+  .privacy{padding:64px 0;background:var(--bg)}
+  .privacy h2{font-size:24px;margin-bottom:12px}
+  .privacy p{color:var(--muted);max-width:780px;margin-bottom:10px;font-size:15px}
+  footer{background:#071225;color:rgba(255,255,255,.7);padding:36px 0;font-size:14.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="logo-mark">M</span>McNeill Web Design</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#start" class="btn btn-primary">Get started</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Websites for small businesses</span>
+        <h1>Your business online. <em>Done for you.</em></h1>
+        <p class="lead">We design, build and look after a professional website for your business, so you can get on with the actual work. No tech skills, no jargon, no hassle.</p>
+        <div class="hero-ctas">
+          <a href="#start" class="btn btn-primary">Get your website</a>
+          <a href="#pricing" class="btn btn-ghost">See pricing</a>
+        </div>
+        <div class="ticks">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Built to look great on phones</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Unlimited content updates</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>UK-wide</span>
+        </div>
+      </div>
+
+      <div class="mock" aria-hidden="true">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><div class="url">yourbusiness.co.uk</div></div>
+          <div class="demo-hero"><b>Your Business Name</b><small>Fast, friendly, local service. Get a free quote today.</small><br><span class="demo-btn">Get a quote</span></div>
+          <div class="demo-cards"><div></div><div></div><div></div></div>
+          <div class="demo-lines"><span style="width:90%"></span><span style="width:75%"></span><span style="width:82%"></span></div>
+        </div>
+        <div class="phone"><div class="phone-screen">
+          <div class="demo-hero"><b>Your Business</b><small>Local, trusted, reliable.</small></div>
+          <div class="call">Tap to call</div>
+          <div class="demo-lines"><span style="width:85%"></span><span style="width:70%"></span><span style="width:80%"></span><span style="width:60%"></span></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="strip-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div><h3>Get found</h3><p>Show up when people search for what you do in your area.</p></div>
+      </div>
+      <div class="strip-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h3>Look the part</h3><p>A proper website makes customers trust you before they ever pick up the phone.</p></div>
+      </div>
+      <div class="strip-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><h3>Zero time from you</h3><p>Fill in one short form. We handle everything else.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From form to live website, simply</h2>
+        <p>No meetings, no back-and-forth, no learning a website builder.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Tell us about your business</h3><p>Fill in a short form with your services, contact details, logo and a few photos. It takes about five minutes.</p></div>
+        <div class="step"><h3>We build your site</h3><p>We design and write your website and send you a preview link to look over.</p></div>
+        <div class="step"><h3>You approve, we go live</h3><p>Ask for any tweaks, then we connect your domain and launch.</p></div>
+        <div class="step"><h3>Need a change? Just ask</h3><p>New prices, photos or opening hours? Fill in our quick <a href="update.html">update form</a> and we'll change it for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="included">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What's included</span>
+        <h2>Everything a small business website needs</h2>
+        <p>One price, nothing to work out, nothing to manage.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B37400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><div><h3>Mobile-friendly design</h3><p>Looks sharp on phones, tablets and computers.</p></div></div>
+        <div class="feat"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B37400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><h3>Up to 5 pages</h3><p>Home, services, about, gallery and contact, or whatever suits you.</p></div></div>
+        <div class="feat"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B37400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg></div><div><h3>Contact form</h3><p>Enquiries land straight in your email inbox.</p></div></div>
+        <div class="feat"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B37400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><h3>Tap-to-call and maps</h3><p>Customers can ring you or find you in one tap.</p></div></div>
+        <div class="feat"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B37400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><div><h3>Google-ready</h3><p>Set up properly so search engines can find and understand your site.</p></div></div>
+        <div class="feat"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B37400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div><h3>Hosting, SSL and backups</h3><p>Fast, secure hosting with the padlock in the address bar, all looked after.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>Simple pricing, no surprises</h2>
+        <p>Pick whichever suits your cash flow. Both include the full website, hosting and unlimited content updates.</p>
+      </div>
+      <div class="plans">
+        <div class="plan featured">
+          <span class="badge">BEST VALUE</span>
+          <h3>Standard</h3>
+          <p class="sub">Pay a small set-up fee, then a low monthly cost.</p>
+          <div class="price"><b>£250</b><span>one-off build</span></div>
+          <p class="then">then <strong>£40</strong> a month</p>
+          <ul>
+            <li>✓ Custom website, up to 5 pages</li>
+            <li>✓ Hosting, SSL and backups</li>
+            <li>✓ Unlimited content updates</li>
+            <li>✓ Cancel with 30 days' notice</li>
+          </ul>
+          <a href="#start" class="btn btn-dark" data-plan="standard">Choose Standard</a>
+        </div>
+        <div class="plan">
+          <h3>Nothing upfront</h3>
+          <p class="sub">No set-up fee at all. Just one monthly payment.</p>
+          <div class="price"><b>£0</b><span>upfront</span></div>
+          <p class="then">then <strong>£69</strong> a month</p>
+          <ul>
+            <li>✓ Custom website, up to 5 pages</li>
+            <li>✓ Hosting, SSL and backups</li>
+            <li>✓ Unlimited content updates</li>
+            <li>✓ 12-month minimum term</li>
+          </ul>
+          <a href="#start" class="btn btn-primary" data-plan="no-upfront">Choose Nothing upfront</a>
+        </div>
+      </div>
+      <p class="small-print">Your domain name (your web address, around £10–£15 a year) is registered in your name, so you always own it. "Unlimited content updates" covers changes to text, photos, prices, opening hours and small layout tweaks. Extra pages, redesigns or new features such as online booking or an online shop are quoted separately.</p>
+    </div>
+  </section>
+
+  <section id="faq" class="included">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions people ask</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Do I need to know anything about websites?</summary><p>No. You tell us about your business, we do the rest. If you can fill in a form, you can get a website.</p></details>
+        <details><summary>How long does it take?</summary><p>Once we have your details, logo and photos, we'll usually send you a preview within a week.</p></details>
+        <details><summary>What do I need to give you?</summary><p>Your business details, the services you offer, your logo if you have one, and a few photos of your work. If you don't have a logo or photos, we'll work with what you've got.</p></details>
+        <details><summary>What counts as a "content update"?</summary><p>Changing text, swapping photos, updating prices or opening hours, adding a review or making a small layout tweak. Brand new pages or features are quoted separately, and we'll always tell you the price before doing anything.</p></details>
+        <details><summary>Do I own my website?</summary><p>Your domain name is registered in your name, so your web address is always yours. If you ever leave, we can hand over your website files.</p></details>
+        <details><summary>Can I cancel?</summary><p>On the Standard plan, cancel any time with 30 days' notice. The Nothing upfront plan has a 12-month minimum term, then it runs month to month.</p></details>      </div>
+    </div>
+  </section>
+
+  <section id="start" class="start">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Get started</span>
+        <h2>Tell us about your business</h2>
+        <p>Takes about five minutes. We'll be in touch to confirm everything before any work starts, and there's nothing to pay until you're happy with your preview.</p>
+      </div>
+
+      <form class="intake" name="intake" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="intake">
+        <p class="hidden"><label>Leave this empty <input name="bot-field"></label></p>
+
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="business">Business name</label><input id="business" name="business" required autocomplete="organization"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel"></div>
+
+        <div class="field full"><label for="what">What does your business do?</label><textarea id="what" name="what" required placeholder="e.g. Domestic and commercial electrician, 10 years' experience"></textarea></div>
+        <div class="field"><label for="area">Area you cover</label><input id="area" name="area" required placeholder="e.g. Belfast and County Down"></div>
+        <div class="field"><label for="hours">Opening hours <span class="opt">(optional)</span></label><input id="hours" name="hours" placeholder="e.g. Mon–Fri 8am–6pm"></div>
+        <div class="field full"><label for="services">Your main services, with prices if you want them shown <span class="opt">(optional)</span></label><textarea id="services" name="services"></textarea></div>
+
+        <div class="field"><label for="domain">Do you already have a domain or website? <span class="opt">(optional)</span></label><input id="domain" name="domain" placeholder="e.g. smithelectrical.co.uk"></div>
+        <div class="field"><label for="socials">Social media links <span class="opt">(optional)</span></label><input id="socials" name="socials" placeholder="Facebook, Instagram, etc."></div>
+
+        <div class="field"><label for="logo">Logo <span class="opt">(optional)</span></label><input id="logo" name="logo" type="file" accept="image/*"></div>
+        <div class="field"><label for="photos">A photo of your work <span class="opt">(optional)</span></label><input id="photos" name="photos" type="file" accept="image/*"></div>
+
+        <div class="field full"><label for="style">Colours, style or websites you like <span class="opt">(optional)</span></label><textarea id="style" name="style" placeholder="e.g. Dark green to match my van. I like the look of ..."></textarea></div>
+
+        <div class="field full">
+          <label>Which plan are you interested in?</label>
+          <div class="radio-row">
+            <label class="radio"><input type="radio" name="plan" value="Standard: £250 + £40/month" checked><span>Standard<small>£250 upfront, then £40 a month</small></span></label>
+            <label class="radio"><input type="radio" name="plan" value="Nothing upfront: £69/month, 12 months"><span>Nothing upfront<small>£0 upfront, then £69 a month (12-month minimum)</small></span></label>
+          </div>
+        </div>
+
+        <div class="field full"><label for="extra">Anything else? <span class="opt">(optional)</span></label><textarea id="extra" name="extra"></textarea></div>
+
+        <label class="consent field full"><input type="checkbox" name="consent" value="yes" required><span>I'm happy for McNeill Web Design to use these details to contact me and build my website, as described in the <a href="#privacy">privacy notice</a>.</span></label>
+
+        <div class="field full"><button type="submit" class="btn btn-primary" style="justify-content:center">Send my details</button></div>
+        <p class="form-note field full">You can also email us at <a href="mailto:mcneillwebdesign@gmail.com">mcneillwebdesign@gmail.com</a> (mcneillwebdesign@gmail.com).</p>
+        <div class="thanks hidden" id="thanks" role="status">Preview only: this form will start sending details once the site is live. Nothing has been sent.</div>
+      </form>
+    </div>
+  </section>
+
+  <section id="privacy" class="privacy">
+    <div class="wrap">
+      <h2>Privacy notice</h2>
+      <p>McNeill Web Design collects the details you give us through this website (such as your name, contact details, business information and any files you upload) so we can contact you, build your website and look after it.</p>
+      <p>We only use your details for that purpose. We don't sell them or share them with anyone, except the services we use to run our business, such as website hosting and email. We keep your details for as long as you're a customer and for a reasonable period afterwards, unless you ask us to delete them.</p>
+      <p>You can ask to see, correct or delete your details at any time by emailing mcneillwebdesign@gmail.com.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> McNeill Web Design. Based in Northern Ireland, working UK-wide.</span>
+    <span><a href="update.html">Existing clients: request an update</a> &nbsp;·&nbsp; <a href="mailto:mcneillwebdesign@gmail.com">mcneillwebdesign@gmail.com</a></span>
+  </div>
+</footer>
+
+<script>
+  // Pre-select the plan when a pricing button is clicked
+  document.querySelectorAll('[data-plan]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var want = btn.getAttribute('data-plan') === 'no-upfront' ? 1 : 0;
+      var radios = document.querySelectorAll('input[name="plan"]');
+      if (radios[want]) radios[want].checked = true;
+    });
+  });
+
+  // On the live site Netlify handles the form. Anywhere else (previews), don't submit.
+  var live = /netlify\.app$|mcneillwebdesign/i.test(location.hostname);
+  if (!live) {
+    document.querySelector('form.intake').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('thanks').classList.remove('hidden');
+    });
+  }
+  try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
+</script>
+</body>
+</html>

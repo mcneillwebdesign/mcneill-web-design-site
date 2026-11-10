@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a website update | McNeill Web Design</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0B1B33;--ink:#0F172A;--muted:#5B6678;--line:#E3E8F0;--bg:#F6F8FB;--accent:#FFB020;--accent-ink:#3A2600}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;line-height:1.15;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+  header{background:var(--navy)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1120px}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:"Plus Jakarta Sans";font-weight:800;font-size:18px}
+  .logo-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:var(--navy);font-weight:800}
+  header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:15px}
+  .intro{background:var(--navy);color:#fff;padding:40px 0 90px}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .intro h1{font-size:clamp(30px,4.6vw,44px);margin:8px 0 12px}
+  .intro p{color:rgba(255,255,255,.78);font-size:17px;max-width:620px}
+  .card{background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(11,27,51,.12);margin-top:-60px;margin-bottom:28px}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .full{grid-column:1/-1}
+  label,.legend{font-weight:600;font-size:14.5px}
+  .opt{font-weight:400;color:var(--muted)}
+  .hint{font-size:13.5px;color:var(--muted);font-weight:400}
+  input,textarea,select{font:inherit;font-size:15px;padding:12px 14px;border:1px solid #CFD6E2;border-radius:10px;background:#fff;color:var(--ink);width:100%}
+  input:focus,textarea:focus,select:focus{outline:3px solid rgba(255,176,32,.45);border-color:var(--accent)}
+  textarea{min-height:96px;resize:vertical}
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .chip{display:flex;gap:10px;align-items:center;border:1px solid #CFD6E2;border-radius:12px;padding:12px 14px;cursor:pointer;font-weight:500;font-size:15px}
+  .chip input{width:auto}
+  .chip:has(input:checked){border-color:var(--navy);background:#F1F4F9}
+  .section-title{grid-column:1/-1;font-size:18px;padding-top:10px;border-top:1px solid var(--line);margin-top:6px}
+  .section-title:first-of-type{border-top:0;padding-top:0;margin-top:0}
+  .btn{display:inline-flex;justify-content:center;align-items:center;font-weight:600;border-radius:999px;padding:14px 24px;border:0;cursor:pointer;font-size:16px;background:var(--accent);color:var(--accent-ink);box-shadow:0 6px 18px rgba(255,176,32,.35)}
+  .hidden{display:none}
+  .thanks{background:#E8F7F0;border:1px solid #BDE7D3;color:#0C5A3E;border-radius:12px;padding:16px;font-weight:500}
+  .included{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:56px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .included h3{font-size:16px;margin-bottom:6px}
+  .included ul{list-style:none;font-size:14.5px;color:var(--muted)}
+  .included li{padding:2px 0}
+  footer{background:#071225;color:rgba(255,255,255,.7);padding:30px 0;font-size:14.5px}
+  footer .wrap{max-width:1120px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media (max-width:700px){form{grid-template-columns:1fr}.chips{grid-template-columns:1fr 1fr}.card{padding:24px}.included{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" class="logo"><span class="logo-mark">M</span>McNeill Web Design</a>
+    <nav><a href="/">Home</a></nav>
+  </div>
+</header>
+
+<div class="intro">
+  <div class="wrap">
+    <span class="eyebrow">Existing clients</span>
+    <h1>Request a website update</h1>
+    <p>Tell us what you'd like changed and we'll take care of it. One request per form keeps things quick and accurate. You'll get a confirmation once it's live.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <form name="update" method="POST" action="/thanks-update.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="update">
+      <p class="hidden"><label>Leave this empty <input name="bot-field"></label></p>
+
+      <h2 class="section-title">Your details</h2>
+      <div class="field"><label for="business">Business name</label><input id="business" name="business" required autocomplete="organization"></div>
+      <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" required autocomplete="email"><span class="hint">Use the email we have on file for you.</span></div>
+      <div class="field full"><label for="website">Your website address</label><input id="website" name="website" required placeholder="e.g. smithelectrical.co.uk"></div>
+
+      <h2 class="section-title">What needs changing?</h2>
+      <div class="field full">
+        <span class="legend">Type of change</span>
+        <div class="chips" role="radiogroup">
+          <label class="chip"><input type="radio" name="change_type" value="Text or wording" required>Text or wording</label>
+          <label class="chip"><input type="radio" name="change_type" value="Photos or images">Photos or images</label>
+          <label class="chip"><input type="radio" name="change_type" value="Prices or services">Prices or services</label>
+          <label class="chip"><input type="radio" name="change_type" value="Opening hours">Opening hours</label>
+          <label class="chip"><input type="radio" name="change_type" value="Contact details">Contact details</label>
+          <label class="chip"><input type="radio" name="change_type" value="Add a review">Add a review</label>
+          <label class="chip"><input type="radio" name="change_type" value="Remove something">Remove something</label>
+          <label class="chip"><input type="radio" name="change_type" value="Small layout tweak">Small layout tweak</label>
+          <label class="chip"><input type="radio" name="change_type" value="Something else">Something else</label>
+        </div>
+      </div>
+      <div class="field full">
+        <label for="where">Where on the website?</label>
+        <select id="where" name="where" required>
+          <option value="">Choose a page or section</option>
+          <option>Home page</option>
+          <option>Services or prices</option>
+          <option>About</option>
+          <option>Gallery or photos</option>
+          <option>Contact</option>
+          <option>Reviews</option>
+          <option>Every page (e.g. phone number in the header)</option>
+          <option>Not sure</option>
+        </select>
+      </div>
+      <div class="field full"><label for="new">Describe the change</label><textarea id="new" name="change" required placeholder="e.g. Change our phone number to 07700 900123, or swap the van photo on the home page for the one attached."></textarea></div>
+      <div class="field full" id="files">
+        <label>Photos or files <span class="opt">(optional)</span></label>
+        <input name="file1" type="file" accept="image/*,.pdf">
+        <input name="file2" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file3" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file4" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file5" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file6" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file7" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file8" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file9" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <input name="file10" type="file" accept="image/*,.pdf" class="hidden extra-file">
+        <button type="button" id="add-file" style="align-self:flex-start;background:none;border:0;color:var(--navy);font:inherit;font-weight:600;cursor:pointer;padding:4px 0">+ Add another file</button>
+        <span class="hint">Lots of photos? Email them to mcneillwebdesign@gmail.com and mention it here.</span>
+      </div>
+
+      <h2 class="section-title">Timing</h2>
+      <div class="field">
+        <label for="when">When do you need it?</label>
+        <select id="when" name="when" required>
+          <option>Whenever is convenient</option>
+          <option>Within a couple of days</option>
+          <option>By a specific date (add below)</option>
+        </select>
+      </div>
+      <div class="field"><label for="date">Specific date <span class="opt">(optional)</span></label><input id="date" name="date" type="date"></div>
+      <div class="field full"><label for="notes">Anything else we should know? <span class="opt">(optional)</span></label><textarea id="notes" name="notes" style="min-height:72px"></textarea></div>
+
+      <div class="field full"><button type="submit" class="btn">Send update request</button></div>
+      <div class="thanks hidden full" id="thanks" role="status">Preview only: this form will start sending requests once the site is live. Nothing has been sent.</div>
+    </form>
+  </div>
+
+  <div class="included">
+    <div>
+      <h3>Included in your plan</h3>
+      <ul>
+        <li>✓ Changes to text and wording</li>
+        <li>✓ Swapping or adding photos</li>
+        <li>✓ Prices, services and opening hours</li>
+        <li>✓ Contact details and reviews</li>
+        <li>✓ Small layout tweaks</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Quoted separately</h3>
+      <ul>
+        <li>• Brand new pages</li>
+        <li>• Redesigns</li>
+        <li>• New features, such as online booking or a shop</li>
+      </ul>
+      <p class="hint" style="margin-top:8px">If your request falls into this list, we'll send you a price before doing anything.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 McNeill Web Design</span>
+    <span>mcneillwebdesign@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('add-file').addEventListener('click', function () {
+    var next = document.querySelector('.extra-file.hidden');
+    if (next) { next.classList.remove('hidden'); next.focus(); }
+    if (!document.querySelector('.extra-file.hidden')) this.classList.add('hidden');
+  });
+  var live = /netlify\.app$|mcneillwebdesign/i.test(location.hostname);
+  if (!live) {
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('thanks').classList.remove('hidden');
+    });
+  }
+</script>
+</body>
+</html>
