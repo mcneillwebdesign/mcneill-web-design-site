@@ -41,7 +41,19 @@
   .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:15px;font-weight:500}
   .nav-links a:hover{color:#fff}
   .nav-links .btn{padding:10px 18px;font-size:15px;color:var(--accent-ink)}
-  @media (max-width:760px){.nav-links a:not(.btn){display:none}}
+  .nav-clients .short{display:none}
+  @media (max-width:760px){
+    .nav-links{gap:14px}
+    .nav-links a:not(.btn):not(.nav-clients){display:none}
+    .nav-clients .long{display:none}.nav-clients .short{display:inline}
+    .nav-clients{color:#fff !important;font-weight:600 !important}
+  }
+  .nav-links a,.logo{white-space:nowrap}
+  @media (max-width:560px){
+    .logo-text{line-height:1.05}
+    .logo .l2{display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+    .nav-links .btn{padding:9px 15px;font-size:14px}
+  }
 
   /* Hero */
   .hero{background:radial-gradient(1200px 500px at 85% -10%, #1E3F72 0%, transparent 60%), var(--navy);color:#fff;padding:80px 0 96px;overflow:hidden}
@@ -166,12 +178,12 @@
 
 <header class="nav">
   <div class="wrap">
-    <a href="#top" class="logo"><span class="logo-mark">M</span>McNeill Web Design</a>
+    <a href="#top" class="logo"><span class="logo-mark">M</span><span class="logo-text">McNeill<span class="l2"> Web Design</span></span></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="update.html">Existing clients</a>
+      <a href="update.html" class="nav-clients"><span class="long">Existing clients</span><span class="short">Clients</span></a>
       <a href="#start" class="btn btn-primary">Get started</a>
     </nav>
   </div>
