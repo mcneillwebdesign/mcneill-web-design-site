@@ -158,10 +158,10 @@
   .radio{display:flex;gap:10px;align-items:flex-start;border:1px solid #CFD6E2;border-radius:12px;padding:14px;cursor:pointer;font-weight:500}
   .radio input{width:auto;margin-top:4px}
   .radio small{display:block;color:var(--muted);font-weight:400}
-  .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}
+  .consent,.consent.field{display:flex;flex-direction:row;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:400}
   .consent input{width:auto;margin-top:4px}
   .hidden{display:none}
-  .form-note{font-size:13.5px;color:var(--muted)}
+  .form-note,.form-note.field{display:block;font-size:13.5px;color:var(--muted)}
   .thanks{grid-column:1/-1;background:#E8F7F0;border:1px solid #BDE7D3;color:#0C5A3E;border-radius:12px;padding:16px;font-weight:500}
   @media (max-width:700px){form.intake{grid-template-columns:1fr;padding:24px}.radio-row{grid-template-columns:1fr}}
 
@@ -333,7 +333,7 @@
         <details><summary>What counts as a "content update"?</summary><p>Changing text, swapping photos, updating prices or opening hours, adding a review or making a small layout tweak. Brand new pages or features are quoted separately, and we'll always tell you the price before doing anything.</p></details>
         <details><summary>Will I show up on Google Maps?</summary><p>Yes, that's included. We set up your Google Business Profile (the listing that shows on Google Maps and in local search) and keep it up to date for you. Google needs to confirm you're a real business, so you'll do a quick one-off verification, usually by video or phone. After that, we look after it. Asking happy customers to leave Google reviews is the best thing you can do to climb the rankings.</p></details>
         <details><summary>Do I own my website?</summary><p>Yes. Your domain name is included in your plan, and we register it in your business's name, so your web address is always yours. If you ever leave, we'll transfer the domain to you and hand over your website files.</p></details>
-        <details><summary>Can I cancel?</summary><p>On the Standard plan, cancel any time with 30 days' notice. The Nothing upfront plan has a 12-month minimum term, then it runs month to month.</p></details>      </div>
+        <details><summary>Can I cancel?</summary><p>On the Standard plan, cancel any time with 30 days' notice. The Nothing upfront plan has a 12-month minimum term, then it runs month to month with 30 days' notice. Full details are in our <a href="terms.html">terms</a>.</p></details>      </div>
     </div>
   </section>
 
@@ -377,10 +377,12 @@
 
         <div class="field full"><label for="extra">Anything else? <span class="opt">(optional)</span></label><textarea id="extra" name="extra"></textarea></div>
 
+        <label class="consent field full"><input type="checkbox" name="terms" value="agreed" required><span>I've read and agree to the <a href="/terms.html" target="_blank" rel="noopener">terms and conditions</a>. Nothing is payable until I approve my preview.</span></label>
+
         <label class="consent field full"><input type="checkbox" name="consent" value="yes" required><span>I'm happy for McNeill Web Design to use these details to contact me and build my website, as described in the <a href="#privacy">privacy notice</a>.</span></label>
 
         <div class="field full"><button type="submit" class="btn btn-primary" style="justify-content:center">Send my details</button></div>
-        <p class="form-note field full">You can also email us at <a href="mailto:mcneillwebdesign@gmail.com">mcneillwebdesign@gmail.com</a> (mcneillwebdesign@gmail.com).</p>
+        <p class="form-note field full">You can also email us at <a href="mailto:mcneillwebdesign@gmail.com">mcneillwebdesign@gmail.com</a>.</p>
         <div class="thanks hidden" id="thanks" role="status">Preview only: this form will start sending details once the site is live. Nothing has been sent.</div>
       </form>
     </div>
@@ -399,7 +401,7 @@
 <footer>
   <div class="wrap">
     <span>© <span id="yr">2026</span> McNeill Web Design. Based in Northern Ireland, working UK-wide.</span>
-    <span><a href="update.html">Existing clients: request an update</a> &nbsp;·&nbsp; <a href="mailto:mcneillwebdesign@gmail.com">mcneillwebdesign@gmail.com</a></span>
+    <span><a href="update.html">Existing clients: request an update</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="mailto:mcneillwebdesign@gmail.com">mcneillwebdesign@gmail.com</a></span>
   </div>
 </footer>
 
